@@ -1,0 +1,22 @@
+{
+  "name": "min-resourcepack-sync",
+  "version": "0.1.0",
+  "description": "Minecraft 1.20.1 Forge server resource pack & mod sync tool",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "launcher": {
+    "modsRepo": "https://github.com/REPLACE_ME/min-resourcepack.git",
+    "modsBranch": "main"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "simple-git": "^3.25.0"
+  },
+  "devDependencies": {
+    "electron": "^31.3.0",
+    "electron-builder": "^24.13.3"
+  }
+}

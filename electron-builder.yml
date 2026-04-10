@@ -1,0 +1,13 @@
+appId: com.minresourcepack.launcher
+productName: Min Resourcepack Launcher
+directories:
+  output: dist
+files:
+  - src/**/*
+  - package.json
+  - "!**/.git/**"
+win:
+  target: nsis
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true

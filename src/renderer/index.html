@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Min Resourcepack Sync</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Min Resourcepack Sync</h1>
+      <p class="subtitle">서버용 모드 · 리소스팩 자동 동기화</p>
+
+      <section class="folder">
+        <label>마인크래프트 폴더</label>
+        <div class="folder-row">
+          <input id="folderPath" readonly />
+          <button id="pickBtn" class="ghost">변경</button>
+          <button id="openBtn" class="ghost">열기</button>
+        </div>
+      </section>
+
+      <section class="play">
+        <button id="syncBtn">다운로드 / 업데이트</button>
+      </section>
+
+      <section class="status">
+        <div id="statusMsg">대기 중</div>
+      </section>
+
+      <p class="hint">
+        다운로드 후 마인크래프트 정품 런처에서 <b>Forge 1.20.1</b> 프로필로 실행하고
+        멀티플레이에서 서버에 접속하세요.
+      </p>
+    </main>
+    <script src="renderer.js"></script>
+  </body>
+</html>
