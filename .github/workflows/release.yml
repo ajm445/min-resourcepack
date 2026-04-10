@@ -18,8 +18,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Cache LFS objects
+        uses: actions/cache@v4
         with:
-          lfs: true
+          path: .git/lfs
+          key: lfs-${{ hashFiles('mods/**', 'resourcepacks/**') }}
+          restore-keys: |
+            lfs-
+
+      - name: Pull LFS objects
+        run: git lfs pull
 
       - name: Create zip (mods + resourcepacks)
         run: |
