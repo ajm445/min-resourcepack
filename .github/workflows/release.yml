@@ -1,0 +1,44 @@
+name: Build mods release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mods/**'
+      - 'resourcepacks/**'
+      - '.github/workflows/release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create zip (mods + resourcepacks)
+        run: |
+          mkdir -p release
+          zip -r release/min-resourcepack.zip mods resourcepacks -x "*/.gitkeep"
+          ls -la release
+
+      - name: Publish/Update latest release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: 최신 모드 + 리소스팩
+          body: |
+            서버용 모드와 리소스팩 최신 묶음입니다.
+
+            ## 설치 방법
+            1. `min-resourcepack.zip` 을 다운로드
+            2. 압축을 풀면 `mods/`, `resourcepacks/` 폴더가 나옴
+            3. 두 폴더를 본인의 `.minecraft` 폴더 안에 그대로 복사 (덮어쓰기)
+            4. 정품 마인크래프트 런처에서 Forge 1.20.1 프로필로 실행 → 멀티플레이 → 서버 접속
+
+            마지막 업데이트 커밋: ${{ github.sha }}
+          files: release/min-resourcepack.zip
+          make_latest: true
