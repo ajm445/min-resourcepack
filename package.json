@@ -8,7 +8,7 @@
     "dist": "electron-builder"
   },
   "launcher": {
-    "modsRepo": "https://github.com/REPLACE_ME/min-resourcepack.git",
+    "modsRepo": "https://github.com/ajm445/min-resourcepack.git",
     "modsBranch": "main"
   },
   "dependencies": {
